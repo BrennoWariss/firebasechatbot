@@ -1,0 +1,52 @@
+<% include ./partials/header %>
+
+    <h3 class="cart_cartTitle">Pedido</h2>
+    <div class="cart_cartcontainer">
+        <div class="cart_itemcontainer">
+            <div>1x</div>
+            <div>File gostoso</div>
+            <div>R$40,00</div>
+            <div>
+                <a class="btn-floating btn-small waves-effect waves-light red accent-2">
+                    <i class="material-icons">delete_forever</i>
+                </a>
+            </div>
+        </div>
+        <div class="cart_priceContainer">
+            <div id="cart_totalPriceTitle">
+                Total
+            </div>
+            <div id="cart_totalPrice">
+                R$ 40,00
+            </div>
+        </div>
+        <div class="cart_cartButtons">
+            <a class="waves-effect waves-light btn-large cyan">Apagar Tudo</a>
+        </div>
+        <div class="cart_cartButtons">
+            <a class="waves-effect waves-light btn-large cyan">Comprar Mais</a>
+        </div>
+        <div id="cart_checkoutButton" class="cart_cartButtons">
+            <a class="waves-effect waves-light btn-large  pink accent-2">Finalizar Pedido</a>
+        </div>
+
+    </div>
+
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {
+                return;
+            }
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/en_US/messenger.Extensions.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'Messenger'));
+
+        window.extAsyncInit = function () {
+            // the Messenger Extensions JS SDK is done loading 
+        };
+    </script>
+
+<% include ./partials/footer %>

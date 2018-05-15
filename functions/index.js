@@ -24,6 +24,40 @@ app.get('/webhook/', (req, res) => {
 	}
 })
 
+//engine ejs
+app.engine('ejs', require('ejs').renderFile);
+app.set('view engine', 'ejs');
+
+
+app.get('/menuAndCart', (req, res) => {
+	res.render('menuAndCart')
+})
+
+//cart route
+app.get('/cart',  (req, res)=> {
+    res.render('cart');
+})
+//menu routes
+app.get('/carnes',  (req, res)=> {
+    res.render('menuCarnes');
+})
+
+app.get('/massas',  (req, res)=> {
+    res.render('menuMassas');
+})
+
+app.get('/pizzas',  (req, res)=> {
+    res.render('menuPizzas');
+})
+
+app.get('/hamburguers',  (req, res)=> {
+    res.render('menuHamburguers');
+})
+
+app.get('/bebidas',  (req, res)=> {
+    res.render('menuBebidas');
+})
+
 app.post('/webhook/', (req, res) => {
 	var data = req.body;
 	console.log(JSON.stringify(data));

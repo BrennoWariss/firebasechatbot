@@ -1,0 +1,34 @@
+<% include ./partials/header %>
+
+    <div class="menucontainer">
+        <a href="/carnes" class="waves-effect waves-light btn-large">
+            <i class="material-icons right">arrow_forward_ios</i>Carnes</a>
+        <a href="/massas" class="waves-effect waves-light btn-large">
+            <i class="material-icons right">arrow_forward_ios</i>Massas</a>
+        <a href="/pizzas" class="waves-effect waves-light btn-large">
+            <i class="material-icons right">arrow_forward_ios</i>Pizzas</a>
+        <a href="/hamburguers" class="waves-effect waves-light btn-large">
+            <i class="material-icons right">arrow_forward_ios</i>Hamburgues</a>
+        <a href="bebidas" class="waves-effect waves-light btn-large">
+            <i class="material-icons right">arrow_forward_ios</i>Bebidas</a>
+
+    </div>
+
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {
+                return;
+            }
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/en_US/messenger.Extensions.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'Messenger'));
+
+        window.extAsyncInit = function () {
+            // the Messenger Extensions JS SDK is done loading 
+        };
+    </script>
+
+    <% include ./partials/footer %>

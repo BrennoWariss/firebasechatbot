@@ -1,0 +1,74 @@
+<% include ./partials/header %>
+
+
+    <h2 class="menuCarnes_menuTitle">Carnes</h2>
+    <div class="menuCarnes_menucontainer">
+        <div class="menuCarnes_itemcontainer">
+            <div>
+                <img src="http://lorempixel.com/640/480/food" alt="carnes">
+            </div>
+            <div>
+                <p id="title">File gostoso</p>
+                <p id="price">R$40,00</p>
+                <P id="description">O mais deliciosos file com batata</P>
+            </div>
+            <div>
+                <a class="btn-floating waves-effect waves-light cyan">
+                    <i class="material-icons">add</i>
+                </a>
+
+            </div>
+        </div>
+        <div class="menuCarnes_itemcontainer">
+                <div>
+                    <img src="http://lorempixel.com/640/480/food" alt="carnes">
+                </div>
+                <div>
+                    <p id="title">File gostoso</p>
+                    <p id="price">R$40,00</p>
+                    <P id="description">O mais deliciosos file com batata</P>
+                </div>
+                <div>
+                    <a class="btn-floating waves-effect waves-light cyan">
+                        <i class="material-icons">add</i>
+                    </a>
+    
+                </div>
+            </div>
+            <div class="menuCarnes_itemcontainer">
+                    <div>
+                        <img src="http://lorempixel.com/640/480/food" alt="carnes">
+                    </div>
+                    <div>
+                        <p id="title">File gostoso</p>
+                        <p id="price">R$40,00</p>
+                        <P id="description">O mais deliciosos file com batata</P>
+                    </div>
+                    <div>
+                        <a class="btn-floating waves-effect waves-light cyan">
+                            <i class="material-icons">add</i>
+                        </a>
+        
+                    </div>
+                </div>
+    </div>
+
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+
+            if (d.getElementById(id)) {
+                return;
+            }
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/en_US/messenger.Extensions.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'Messenger'));
+
+        window.extAsyncInit = function () {
+            // the Messenger Extensions JS SDK is done loading 
+        };
+    </script>
+
+<% include ./partials/footer %>

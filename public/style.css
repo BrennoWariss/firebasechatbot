@@ -1,0 +1,137 @@
+body {
+    background-color:white;
+    
+}
+div {
+    margin: 0%;
+}
+.container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    /* margin: 0, 0, 0, 0; */
+    padding: 0%;
+    justify-content: space-around;
+    margin-top: 2rem;
+    background-color: #f5f5f5;
+}
+
+.container > a {
+    /* background-color: #ebeaea; */
+   color: black;
+   box-shadow:none;
+   
+}
+
+.container > a > i{
+   font-size: 30px;
+}
+
+.container > div {
+
+    box-shadow:none;
+
+}
+.container > div > a {
+    /* background-color: #852525; */
+    box-shadow:none;
+
+}
+.container > div > a > i {
+    color: black;
+    font-size: 30px; 
+}
+.menucontainer {
+    display: grid;
+    grid-template-columns: auto;
+    margin-top: 20%;
+
+}
+.menucontainer > a {
+    text-align: left;
+    background-color:rgb(255, 255, 255);
+    color: black;
+    border-bottom: 1px solid rgb(179, 176, 176);
+    border-top: none;
+    box-shadow:none;
+
+}
+.menucontainer > a >i {
+    color: rgb(100, 99, 99);
+}
+.menuTitle {
+    margin: 0%;
+    background-color: #f5f5f5;
+    text-align: center;
+}
+
+/* menuCarnes syle */
+
+.menuCarnes_menuTitle {
+    margin: 0%;
+    background-color: #f5f5f5;
+    text-align: center;
+    
+}
+.menuCarnes_itemcontainer{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    margin: 3%;
+}
+.menuCarnes_itemcontainer > div > img {
+    width: 120px;
+}
+.menuCarnes_itemcontainer > div > p {
+    margin: 0%;
+}
+.menuCarnes_itemcontainer > div{
+    display: grid;
+    align-content: center;
+}
+
+.cart_cartTitle {
+    margin: 0%;
+    background-color: #f5f5f5;
+    text-align: center;
+    
+}
+.cart_cartcontainer {
+    display: grid;
+    grid-template-columns: auto;
+}
+
+/* css cart syle */
+
+.cart_itemcontainer{
+    display: grid;
+    grid-template-columns: 1fr 3fr 2fr 1fr;
+    height: 4rem;
+    align-items: center;
+    text-align: center;
+    font-size: 20px;
+}
+.cart_priceContainer{
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 1fr;
+    font-size: 18px;
+    margin-top:8rem;
+    font-weight: bold; 
+}
+#cart_totalPriceTitle{
+    grid-column: 1/1;
+    text-align: center;
+}
+#cart_totalPrice{
+    grid-column: 3/3;
+}
+.cart_cartButtons {
+    margin: 1rem;
+
+}
+#cart_checkoutButton {
+    margin-top: 8rem;
+}
+.cart_cartButtons > a{
+    width: 100%;
+    padding: 0%;    
+}

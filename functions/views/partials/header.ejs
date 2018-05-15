@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <title>Meu Carrinho</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="/stylesheetys/menuCarnes.css" /> -->
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="/public/stylesheetys/cart.css" /> -->
+    <!-- <script src="main.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/5.0.2/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.2/firebase-firestore.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <a onclick="goBack()" class="waves-effect grey lighten-4 btn-large">
+            <i class="large material-icons">arrow_back</i>
+        </a>
+        <a href="menuAndCart" class="waves-effect grey lighten-4 btn-large">
+            <i class="material-icons">restaurant_menu</i>
+        </a>
+        <!-- <a class="waves-effect waves-light btn-large"><i class="material-icons">restaurant_menu</i></a> -->
+        <div>
+            <a href="/cart" class="waves-effect grey lighten-4 btn-large">
+                <i class="material-icons">shopping_basket</i>
+            </a>
+        </div>
+    </div>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
