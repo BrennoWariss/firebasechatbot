@@ -1,56 +1,26 @@
 <% include ./partials/header %>
 
 
-    <h2 class="menuCarnes_menuTitle">Carnes</h2>
+    <h2 class="menuCarnes_menuTitle"><%= dbHolder.submenu[2][0] %></h2>
     <div class="menuCarnes_menucontainer">
-        <div class="menuCarnes_itemcontainer">
-            <div>
-                <img src="http://pratolegal.com.br/wp-content/uploads/2015/11/carne_oms-695x346.jpg" alt="carnes">
-            </div>
-            <div>
-                <p id="title">File gostoso</p>
-                <p id="price">R$40,00</p>
-                <P id="description">O mais deliciosos file com batata</P>
-            </div>
-            <div>
-                <a class="btn-floating waves-effect waves-light cyan">
-                    <i class="material-icons">add</i>
-                </a>
-
-            </div>
-        </div>
-        <div class="menuCarnes_itemcontainer">
-                <div>
-                    <img src="http://pratolegal.com.br/wp-content/uploads/2015/11/carne_oms-695x346.jpg" alt="carnes">
+            <% for (let i = 1; i <  dbHolder.submenu[2].length; i++) { %>
+                <div class="menuCarnes_itemcontainer">
+                        <div>
+                            <img src= "<%= dbHolder.submenu[2][i].image_url %>" alt="carnes">
+                        </div>
+                        <div>
+                            <p id="title"><%= dbHolder.submenu[2][i].title %></p>
+                            <p id="price"><%= dbHolder.submenu[2][i].price %></p>
+                            <P id="description"><%= dbHolder.submenu[2][i].description %></P>
+                        </div>
+                        <div>
+                            <a class="btn-floating waves-effect waves-light cyan">
+                                <i class="material-icons">add</i>
+                            </a>
+                        </div>
                 </div>
-                <div>
-                    <p id="title">File gostoso</p>
-                    <p id="price">R$40,00</p>
-                    <P id="description">O mais deliciosos file com batata</P>
-                </div>
-                <div>
-                    <a class="btn-floating waves-effect waves-light cyan">
-                        <i class="material-icons">add</i>
-                    </a>
-    
-                </div>
-            </div>
-            <div class="menuCarnes_itemcontainer">
-                    <div>
-                        <img src="http://pratolegal.com.br/wp-content/uploads/2015/11/carne_oms-695x346.jpg" alt="carnes">
-                    </div>
-                    <div>
-                        <p id="title">File gostoso</p>
-                        <p id="price">R$40,00</p>
-                        <P id="description">O mais deliciosos file com batata</P>
-                    </div>
-                    <div>
-                        <a class="btn-floating waves-effect waves-light cyan">
-                            <i class="material-icons">add</i>
-                        </a>
+        <% } %>
         
-                    </div>
-                </div>
     </div>
 
     <script>

@@ -4,6 +4,10 @@ const express   = require('express');
 const request   = require('request');
 const handlers  = require('./Handlers');
 const app       = express();
+var dbHolder    = require('./dbHolder');
+var dbFunctions = require ('./dbFunctions');
+// module fuctions just for test, delete after testing ******
+// var dbFunctions = require ('./dbFunctions');
 
 app.get('/timestamp', (request, response) => {
     response.send(`${Date.now()}`);
@@ -27,6 +31,21 @@ app.get('/webhook/', (req, res) => {
 //engine ejs
 app.engine('ejs', require('ejs').renderFile);
 app.set('view engine', 'ejs');
+
+//export dbholder to all ejs
+
+
+app.locals.dbHolder = dbHolder;
+// setTimeout(() => {
+// 	console.log(dbHolder.menuTitle);
+// 	console.log(dbHolder.submenu[1]);
+// 	console.log(dbHolder.listMenuCount);
+	
+//  }, 3000);
+//test fuctions, delete after testing****
+dbFunctions.listMenu();
+// dbFunctions.teste01()
+
 
 
 app.get('/menuAndCart', (req, res) => {
@@ -76,11 +95,11 @@ app.post('/webhook/', (req, res) => {
 				} else if (messagingEvent.message) {
 				handlers.receivedMessage(messagingEvent);
 				} else if (messagingEvent.delivery) {
-					receivedDeliveryConfirmation(messagingEvent);
+				handlers.receivedDeliveryConfirmation(messagingEvent);
 				} else if (messagingEvent.postback) {
-					receivedPostbackActions(messagingEvent);
+				handlers.receivedPostback(messagingEvent);
 				} else if (messagingEvent.read) {
-					receivedMessageRead(messagingEvent);
+				handlers.receivedMessageRead(messagingEvent);
 				} else if (messagingEvent.account_linking) {
 					receivedAccountLink(messagingEvent);
 				} else {

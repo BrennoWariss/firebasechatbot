@@ -1,16 +1,7 @@
 const functions = require('firebase-functions');
 const config    = require('./config');
 const request   = require('request');
-
-
-//firestore initialize
-const admin = require('firebase-admin');
-var serviceAccount = require('./backChatBot-eca749cf2efc.json');
-admin.initializeApp({
-	credential: admin.credential.cert(serviceAccount)
-});
-var db = admin.firestore();
-
+var dbFunctions = require ('./dbFunctions');
 
 var handlers = {};
 
@@ -45,11 +36,66 @@ handlers.receivedMessage = function (event) {
 
 	if (messageText) {
 		//send message to api.ai
-		handlers.sendMenu(event);
+		handlers.sendTextMessage(senderID, "espera 5s pra teste");
+		// handlers.sendMenu(event);
 	} else if (messageAttachments) {
 		handleMessageAttachments(messageAttachments, senderID);
 	}
 }
+
+handlers.receivedDeliveryConfirmation = function(event) {
+	var senderID = event.sender.id;
+	var recipientID = event.recipient.id;
+	var delivery = event.delivery;
+	var messageIDs = delivery.mids;
+	var watermark = delivery.watermark;
+	var sequenceNumber = delivery.seq;
+
+	if (messageIDs) {
+		messageIDs.forEach((messageID) => {
+			console.log("Received delivery confirmation for message ID: %s",
+				messageID);
+		});
+	}
+
+	console.log("All message before %d were delivered.", watermark);
+}
+
+handlers.receivedPostback = function(event) {
+	var senderID = event.sender.id;
+	var recipientID = event.recipient.id;
+	var timeOfPostback = event.timestamp;
+
+	// The 'payload' param is a developer-defined field which is set in a postback 
+	// button for Structured Messages. 
+	var payload = event.postback.payload;
+
+	switch (payload) {
+
+
+		case 'testelist':
+			sendGenericMessageforlisttest(event);
+			break;
+		
+		default:
+			//unindentified payload
+			sendTextMessage(senderID, "I'm not sure what you want. Can you be more specific?aqi");
+			break;
+
+	}}
+
+	
+handlers.receivedMessageRead = function (event) {
+		var senderID = event.sender.id;
+		var recipientID = event.recipient.id;
+	
+		// All messages before watermark (a timestamp) or sequence have been seen.
+		var watermark = event.read.watermark;
+		var sequenceNumber = event.read.seq;
+	
+		console.log("Received message read event for watermark %d and sequence " +
+			"number %d", watermark, sequenceNumber);
+	}	
 
 handlers.sendTextMessage = function (recipientId, text) {
 	var messageData = {
@@ -60,6 +106,7 @@ handlers.sendTextMessage = function (recipientId, text) {
 			text: text
 		}
 	}
+	dbFunctions.listMenu();
 	handlers.callSendAPI(messageData);
 }
 
@@ -89,33 +136,33 @@ handlers.callSendAPI = function (messageData) {
 		}
 	});
 }
-handlers.sendMenu = function (event) {
-	var senderID = event.sender.id;
-	let elements = [];
-	handlers.sendTextMessage(senderID, "carregando cardapio");
-	var docRef = db.collection('restaurant').doc('ciaPaulista').collection('products');
-	docRef.get().then(listdbElement()).catch( (error) => {
-		console.log('some error' + error);
-	})
-    function listdbElement() {
-        return snapshot => {
-            snapshot.forEach(doc => {
-                if (doc && doc.exists) {
-                    const mydata = doc.data();
-                    let element = {
-                        "title": mydata.title,
-                        "image_url": mydata.image_url,
-                        "subtitle": mydata.subtitle,
-                        "buttons": mydata.buttons
-                    };
-                    elements.push(element);
-                    // console.log(elements)
-                }
-            });
-            handlers.sendGenericMessage(senderID, elements);
-        };
-    }
-}
+// handlers.sendMenu = function (event) {
+// 	var senderID = event.sender.id;
+// 	let elements = [];
+// 	handlers.sendTextMessage(senderID, "carregando cardapio");
+// 	var docRef = db.collection('restaurant').doc('ciaPaulista').collection('products');
+// 	docRef.get().then(listdbElement()).catch( (error) => {
+// 		console.log('some error' + error);
+// 	})
+//     function listdbElement() {
+//         return snapshot => {
+//             snapshot.forEach(doc => {
+//                 if (doc && doc.exists) {
+//                     const mydata = doc.data();
+//                     let element = {
+//                         "title": mydata.title,
+//                         "image_url": mydata.image_url,
+//                         "subtitle": mydata.subtitle,
+//                         "buttons": mydata.buttons
+//                     };
+//                     elements.push(element);
+//                     // console.log(elements)
+//                 }
+//             });
+//             handlers.sendGenericMessage(senderID, elements);
+//         };
+//     }
+// }
 
 handlers.sendGenericMessage = function(recipientId, elements) {
 	var messageData = {
@@ -135,5 +182,5 @@ handlers.sendGenericMessage = function(recipientId, elements) {
 
 	handlers.callSendAPI(messageData);
 }
-var casa= 2;
+
 module.exports = handlers;

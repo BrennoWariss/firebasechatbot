@@ -1,16 +1,10 @@
 <% include ./partials/header %>
 
     <div class="menucontainer">
-        <a href="/carnes" class="waves-effect waves-light btn-large">
-            <i class="material-icons right">arrow_forward_ios</i>Carnes</a>
-        <a href="/massas" class="waves-effect waves-light btn-large">
-            <i class="material-icons right">arrow_forward_ios</i>Massas</a>
-        <a href="/pizzas" class="waves-effect waves-light btn-large">
-            <i class="material-icons right">arrow_forward_ios</i>Pizzas</a>
-        <a href="/hamburguers" class="waves-effect waves-light btn-large">
-            <i class="material-icons right">arrow_forward_ios</i>Hamburgues</a>
-        <a href="bebidas" class="waves-effect waves-light btn-large">
-            <i class="material-icons right">arrow_forward_ios</i>Bebidas</a>
+        <% for (let i = 0; i < dbHolder.menuTitle.length; i++) { %>
+            <a href="<%= dbHolder.menuTitle[i] %>" class="waves-effect waves-light btn-large">
+                <i class="material-icons right">arrow_forward_ios</i><%= dbHolder.menuTitle[i] %></a>
+        <% } %>
 
     </div>
 

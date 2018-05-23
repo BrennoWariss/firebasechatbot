@@ -75,11 +75,11 @@ div {
 }
 .menuCarnes_itemcontainer{
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto auto auto;
     margin: 3%;
 }
 .menuCarnes_itemcontainer > div > img {
-    width: 120px;
+    width: 80px;
 }
 .menuCarnes_itemcontainer > div > p {
     margin: 0%;
@@ -134,4 +134,7 @@ div {
 .cart_cartButtons > a{
     width: 100%;
     padding: 0%;    
+}
+#title {
+    font-weight: 600;
 }

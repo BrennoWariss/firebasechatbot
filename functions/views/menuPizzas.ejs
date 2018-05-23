@@ -1,25 +1,27 @@
 <% include ./partials/header %>
 
 
-    <h2 class="menuCarnes_menuTitle">Carnes</h2>
+    <h2 class="menuCarnes_menuTitle">Pizzas</h2>
     <div class="menuCarnes_menucontainer">
-        <div class="menuCarnes_itemcontainer">
-            <div>
-                <img src="http://pratolegal.com.br/wp-content/uploads/2015/11/carne_oms-695x346.jpg" alt="carnes">
-            </div>
-            <div>
-                <p id="title">File gostoso</p>
-                <p id="price">R$40,00</p>
-                <P id="description">O mais deliciosos file com batata</P>
-            </div>
-            <div>
-                <a class="btn-floating waves-effect waves-light cyan">
-                    <i class="material-icons">add</i>
-                </a>
-
-            </div>
-        </div>
-        <div class="menuCarnes_itemcontainer">
+            <% for (let i = 0; i < dbHolder.menuCount; i++) { %>
+                <div class="menuCarnes_itemcontainer">
+                    <div>
+                        <img src= <%= "" %> alt="carnes">
+                    </div>
+                    <div>
+                        <p id="title"><%=  %></p>
+                        <p id="price"><%=  %></p>
+                        <P id="description"><%=  %></P>
+                    </div>
+                    <div>
+                        <a class="btn-floating waves-effect waves-light cyan">
+                            <i class="material-icons">add</i>
+                        </a>
+    
+                    </div>
+                </div>
+            <% } %>
+        <!-- <div class="menuCarnes_itemcontainer">
                 <div>
                     <img src="http://pratolegal.com.br/wp-content/uploads/2015/11/carne_oms-695x346.jpg" alt="carnes">
                 </div>
@@ -50,7 +52,7 @@
                         </a>
         
                     </div>
-                </div>
+                </div> -->
     </div>
 
     <script>

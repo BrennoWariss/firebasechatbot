@@ -1,56 +1,26 @@
 <% include ./partials/header %>
 
 
-    <h2 class="menuCarnes_menuTitle">Carnes</h2>
+    <h2 class="menuCarnes_menuTitle"><%= dbHolder.submenu[3][0] %></h2>
     <div class="menuCarnes_menucontainer">
-        <div class="menuCarnes_itemcontainer">
-            <div>
-                <img src="http://lorempixel.com/640/480/food" alt="carnes">
-            </div>
-            <div>
-                <p id="title">File gostoso</p>
-                <p id="price">R$40,00</p>
-                <P id="description">O mais deliciosos file com batata</P>
-            </div>
-            <div>
-                <a class="btn-floating waves-effect waves-light cyan">
-                    <i class="material-icons">add</i>
-                </a>
+            <% for (let i = 1; i <  dbHolder.submenu[3].length; i++) { %>
+                <div class="menuCarnes_itemcontainer">
+                        <div>
+                            <img src= "<%= dbHolder.submenu[3][i].image_url %>" alt="carnes">
+                        </div>
+                        <div>
+                            <p id="title"><%= dbHolder.submenu[3][i].title %></p>
+                            <p id="price"><%= dbHolder.submenu[3][i].price %></p>
+                            <P id="description"><%= dbHolder.submenu[3][i].description %></P>
+                        </div>
+                        <div>
+                            <a class="btn-floating waves-effect waves-light cyan">
+                                <i class="material-icons">add</i>
+                            </a>
+                        </div>
+                </div>
+        <% } %>
 
-            </div>
-        </div>
-        <div class="menuCarnes_itemcontainer">
-                <div>
-                    <img src="http://lorempixel.com/640/480/food" alt="carnes">
-                </div>
-                <div>
-                    <p id="title">File gostoso</p>
-                    <p id="price">R$40,00</p>
-                    <P id="description">O mais deliciosos file com batata</P>
-                </div>
-                <div>
-                    <a class="btn-floating waves-effect waves-light cyan">
-                        <i class="material-icons">add</i>
-                    </a>
-    
-                </div>
-            </div>
-            <div class="menuCarnes_itemcontainer">
-                    <div>
-                        <img src="http://lorempixel.com/640/480/food" alt="carnes">
-                    </div>
-                    <div>
-                        <p id="title">File gostoso</p>
-                        <p id="price">R$40,00</p>
-                        <P id="description">O mais deliciosos file com batata</P>
-                    </div>
-                    <div>
-                        <a class="btn-floating waves-effect waves-light cyan">
-                            <i class="material-icons">add</i>
-                        </a>
-        
-                    </div>
-                </div>
     </div>
 
     <script>
